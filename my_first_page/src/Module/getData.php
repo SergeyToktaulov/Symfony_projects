@@ -6,8 +6,6 @@ class getData
 {
     private array $topic;
 
-
-
     public function getUrls()
     {
         $this->urls = ImageSpider::find($this->theme);
