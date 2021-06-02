@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Сергей Токтаулов</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"
           type="text/css">
 </head>
@@ -33,13 +33,12 @@
     </ul>
 </div>
 
-    {% for theme in hobbies %}
-        <div class="hobbies">
-            <div class="hobbies__header">{{ theme.header }}</div>
-            {% for image in theme.images %}
+    {% for name in hobbies %}
+        <h4 class="hobbies__header">{{ name.header }}</h4>
+        <div class="block-for-slider">
+            {% for image in name.images %}
                 <img src="{{ image }}" alt="" class="hobbies__image">
             {% endfor%}
-            <div class="clear"></div>
         </div>
     {% endfor%}
 </body>

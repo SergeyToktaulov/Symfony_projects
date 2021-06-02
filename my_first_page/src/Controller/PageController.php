@@ -2,24 +2,18 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Module\getData;
+use App\View\AboutMe\AboutMePageView;
+use App\Modules\AboutMe\App\HobbieService;
 class PageController extends AbstractController
 {
-    public function index()
+    public function aboutMePage(HobbieService $hobbieService)
     {
-        $hobbies = new getData();
+        $hobbies = $hobbieService->getHobbies();
+        $aboutMePage = new AboutMePageView();
 
-        $theme = 'CS:GO';
-        $hobbies->addTopic($theme);
-
-        $theme = 'Camping';
-        $hobbies->addTopic($theme);
-
-        $theme = 'Dogs';
-        $hobbies->addTopic($theme);
 
         return $this->render('mypage.html.twig',[
-            'hobbies' => $hobbies-> getData()
+            'hobbies' => $aboutMePage->buildParams($hobbies)
         ]);
     }
 }

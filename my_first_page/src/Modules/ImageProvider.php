@@ -1,11 +1,9 @@
 <?php
-namespace App\Module;
+namespace App\Modules;
 use IvanUskov\ImageSpider\ImageSpider;
 
-class getData
+class ImageProvider
 {
-    private array $topic;
-
     public function getUrls()
     {
         $this->urls = ImageSpider::find($this->theme);
@@ -19,18 +17,5 @@ class getData
             $images[] = $this->urls[mt_rand(0, count($this->urls) - 1)];
         }
         return $images;
-    }
-
-    public function addTopic($theme)
-    {
-        $this->topic[] = [
-            'header' => $this->theme = $theme,
-            'images' => $this->getArrayUrls()
-        ];
-    }
-
-    public function  getData()
-    {
-        return $this->topic;
     }
 }

@@ -5,6 +5,7 @@
     width: 200px;
     height: 275px;
 }
+
 .clearfix
 {
     clear: both;
@@ -12,7 +13,8 @@
 
 .mainhead
 {
-    margin-left: 800px;
+    display: flex;
+    justify-content: center;
     font: bold 48px/42px 'Open Sans', serif;
     color: #333333;
 }
@@ -47,19 +49,21 @@
     color: #555555;
 }
 
-.hobbies
+.block-for-slider
 {
-    display: block;
-    margin-left: 350px;
+    display: flex;
+    justify-content: space-around;
 }
 
 .hobbies__image
 {
     width: 250px;
-    height: 200px;
+    height: 150px;
 }
 
 .hobbies__header
 {
     font: 24px/32px 'Open Sans', serif;
+    display: flex;
+    justify-content: center;
 }
