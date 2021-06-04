@@ -2,8 +2,9 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0 "/>
     <title>Сергей Токтаулов</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ asset('build/app.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"
           type="text/css">
 </head>
@@ -33,13 +34,33 @@
     </ul>
 </div>
 
-    {% for name in hobbies %}
-        <h4 class="hobbies__header">{{ name.header }}</h4>
-        <div class="block-for-slider">
-            {% for image in name.images %}
-                <img src="{{ image }}" alt="" class="hobbies__image">
-            {% endfor%}
+{% for name in hobbies %}
+    <h4 class="hobbies__header">{{ name.header }}</h4>
+    <div class="block-for-slider" id="block-for-slider">
+        <div id="viewport">
+            <ul id="slidewrapper">
+                {% for image in name.images %}
+                    <li class="slide">
+                        <img src="{{ image }}" alt="" class="hobbies__image">
+                    </li>
+                {% endfor%}
+            </ul>
+            <div id="prev-next-btns">
+                <div id="prev-btn"></div>
+                <div id="next-btn"></div>
+            </div>
+            <ul id="nav-btns">
+                <li class="slide-nav-btn"></li>
+                <li class="slide-nav-btn"></li>
+                <li class="slide-nav-btn"></li>
+                <li class="slide-nav-btn"></li>
+                <li class="slide-nav-btn"></li>
+            </ul>
         </div>
-    {% endfor%}
+    </div>
+{% endfor%}
+
+    <script type="text/javascript" src="{{ asset('build/app.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('build/runtime.js') }}"></script>
 </body>
 </html>
