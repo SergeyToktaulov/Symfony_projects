@@ -2,63 +2,57 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0 "/>
-    <title>Сергей Токтаулов</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400&display=swap"
+          rel="stylesheet"/>
     <link rel="stylesheet" href="{{ asset('build/app.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"
-          type="text/css">
+    <title>Сергей Токтаулов</title>
 </head>
 <body>
-<h1 class="mainhead">Сергей Токтаулов</h1>
-<img class="leftimg" src="https://sun9-32.userapi.com/impg/kBortQSRe0xs41jOfGofKUEA-gHYegAbU20UUQ/Gy2QRFl5mEc.jpg?size=1514x2019&quality=96&sign=985968051da1aa08a7bdcfddabe8a215&type=album" alt="avatar">
-<span class="clearfix"></span>
-<h2 class="secondhead">О себе:</h2>
-<div class="text">
-    <p>Привет! Меня зовут Токтаулов Сергей, я студент группы ПС-13.</p>
-    <p>
-        В школе я учился в био-химическом классе и после выпуска поступил в Военно-Медицинскую академию, но вскоре понял, что это не моё.
-        До поступления в Волгатех с программированием был вовсе не знаком, но имею большой интерес к его изучению.
-    </p>
-</div>
-<h3 class="thirdhead">Мои увлечения:</h3>
-<ol class="list">
-    <li>Спорт</li>
-    <li>Киберспорт</li>
-    <li>Чтение</li>
-</ol>
-<div class="contacts">
-    <h4 class="fourthhead">Контакты:</h4>
-    <ul>
-        <li><a href="https://vk.com/id93822860">VK</a></li>
-        <li><a href="https://www.instagram.com/dickstacy.ttfu/">Instagram</a> </li>
-    </ul>
-</div>
-
-{% for name in hobbies %}
-    <h4 class="hobbies__header">{{ name.header }}</h4>
-    <div class="block-for-slider" id="block-for-slider">
-        <div id="viewport">
-            <ul id="slidewrapper">
-                {% for image in name.images %}
-                    <li class="slide">
-                        <img src="{{ image }}" alt="" class="hobbies__image">
-                    </li>
-                {% endfor%}
-            </ul>
-            <div id="prev-next-btns">
-                <div id="prev-btn"></div>
-                <div id="next-btn"></div>
-            </div>
-            <ul id="nav-btns">
-                <li class="slide-nav-btn"></li>
-                <li class="slide-nav-btn"></li>
-                <li class="slide-nav-btn"></li>
-                <li class="slide-nav-btn"></li>
-                <li class="slide-nav-btn"></li>
-            </ul>
-        </div>
+    <h1 class="mainhead">Сергей Токтаулов</h1>
+    <img class="leftimg" src="https://sun9-32.userapi.com/impg/kBortQSRe0xs41jOfGofKUEA-gHYegAbU20UUQ/Gy2QRFl5mEc.jpg?size=1514x2019&quality=96&sign=985968051da1aa08a7bdcfddabe8a215&type=album" alt="avatar">
+    <span class="clearfix"></span>
+    <h2 class="secondhead">О себе:</h2>
+    <div class="text">
+        <p>Привет! Меня зовут Токтаулов Сергей, я студент группы ПС-13.</p>
+        <p>
+            В школе я учился в био-химическом классе и после выпуска поступил в Военно-Медицинскую академию, но вскоре понял, что это не моё.
+            До поступления в Волгатех с программированием был вовсе не знаком, но имею большой интерес к его изучению.
+        </p>
     </div>
-{% endfor%}
+    <h3 class="thirdhead">Мои увлечения:</h3>
+    <ol class="list">
+        <li>Спорт</li>
+        <li>Киберспорт</li>
+        <li>Чтение</li>
+    </ol>
+    <div class="contacts">
+        <h4 class="fourthhead">Контакты:</h4>
+         <ul>
+            <li><a href="https://vk.com/id93822860">VK</a></li>
+            <li><a href="https://www.instagram.com/dickstacy.ttfu/">Instagram</a> </li>
+        </ul>
+    </div>
+
+    {% for name in hobbies %}
+        <p class="title">{{ name.header}} </p>
+        <div class="ant-carousel" id="{{ name.header }}">
+            <div class="ant-carousel-hider">
+                <ul class="ant-carousel-list">
+                    {% for image in name.images %}
+                        <li class="ant-carousel-element">
+                            <img class="ant-img" src="{{ image }}" alt="0">
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="ant-carousel-arrow-left"></div>
+            <div class="ant-carousel-arrow-right"></div>
+            <div class="ant-carousel-dots"></div>
+        </div>
+    {% endfor %}
 
     <script type="text/javascript" src="{{ asset('build/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('build/runtime.js') }}"></script>

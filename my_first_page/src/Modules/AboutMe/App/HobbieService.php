@@ -26,8 +26,8 @@ class HobbieService
     {
         $hobbie = new Hobbie($name, $this->imageUrls->getImageUrls($name));
         $this->result[] = [
-            'header' => $hobbie->getName(),
-            'images' => $hobbie->getArrUrls(),
+            $hobbie->getName(),
+            $hobbie->getArrUrls(),
         ];
     }
 }
